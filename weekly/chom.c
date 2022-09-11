@@ -13,15 +13,15 @@ int main()
     z = num1 + num3;
 
         
-    if (x > y > z)
+    if (x > y && x > z)
     {
         printf("%d", x);
     }
-    if (y > x > z)
+    if (y > x && y > z)
     {
         printf("%d", y);
     }
-    if (z > x > y)
+    if (z > x && z > y)
     {
         printf("%d", z);
     }
