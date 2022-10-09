@@ -1,0 +1,91 @@
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char string[100000];
+    int a=0,b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,p=0,q=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0;
+    scanf("%s[^/n]",string);
+    for(int num = 0 ; num <= strlen(string) ; num++){
+        if(string[num]=='a'||string[num]=='A'){
+            a=a+1;
+        }
+        if(string[num]=='b'||string[num]=='B'){
+            b=b+1;
+        }
+        if(string[num]=='C'||string[num]=='c'){
+            c=c+1;
+        }
+        if(string[num]=='d'||string[num]=='D'){
+            d=d+1;
+        }
+        if(string[num]=='e'||string[num]=='E'){
+            e=e+1;
+        }
+        if(string[num]=='f'||string[num]=='F'){
+            f=f+1;
+        }
+        if(string[num]=='g'||string[num]=='G'){
+            g=g+1;
+        }
+        if(string[num]=='h'||string[num]=='H'){
+            c=c+1;
+        }
+        if(string[num]=='i'||string[num]=='I'){
+            i=i+1;
+        }
+        if(string[num]=='j'||string[num]=='J'){
+            j=j+1;
+        }
+        if(string[num]=='k'||string[num]=='K'){
+            k=k+1;
+        }
+        if(string[num]=='l'||string[num]=='L'){
+            l=l+1;
+        }
+        if(string[num]=='m'||string[num]=='M'){
+            m=m+1;
+        }
+        if(string[num]=='n'||string[num]=='N'){
+            n=n+1;
+        }
+        if(string[num]=='o'||string[num]=='O'){
+            o=o+1;
+        }
+        if(string[num]=='p'||string[num]=='P'){
+            p=p+1;
+        }
+        if(string[num]=='q'||string[num]=='Q'){
+            q=q+1;
+        }
+        if(string[num]=='r'||string[num]=='R'){
+            r=r+1;
+        }
+        if(string[num]=='s'||string[num]=='S'){
+            s=s+1;
+        }
+        if(string[num]=='t'||string[num]=='T'){
+            t=t+1;
+        }
+        if(string[num]=='u'||string[num]=='U'){
+            u=u+1;
+        }
+        if(string[num]=='v'||string[num]=='V'){
+            v=v+1;
+        }
+        if(string[num]=='w'||string[num]=='W'){
+            w=w+1;
+        }
+        if(string[num]=='x'||string[num]=='X'){
+            x=x+1;
+        }
+        if(string[num]=='y'||string[num]=='Y'){
+            y=y+1;
+        }
+        if(string[num]=='z'||string[num]=='Z'){
+            z=z+1;
+        }
+    }
+    printf("A : %d\nB : %d\nC : %d\nD : %d\nE : %d\nF : %d\nG : %d\nH : %d\nI : %d\nJ : %d\nK : %d\nL : %d\nM : %d\nN : %d\nO : %d\nP : %d\nQ : %d\nR : %d\nS : %d\nT : %d\nU : %d\nV : %d\nW : %d\nX : %d\nY : %d\nZ : %d\n",a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z);
+}
+
+//108
