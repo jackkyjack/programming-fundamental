@@ -8,6 +8,7 @@ from object_renderer import *
 from sprite_object import *
 from object_handler import *
 from weapon import *
+from sound import *
 
 class Game():
     def __init__(self):
@@ -27,6 +28,7 @@ class Game():
         # self.animated_sprtie = AnimatedSprite(self)
         self.object_handler = ObjectHandler(self)
         self.weapon = Weapon(self)
+        self.sound = Sound(self)
         
     def update(self):
         self.player.update()
@@ -35,7 +37,7 @@ class Game():
         # self.animated_sprtie.update()
         self.object_handler.update()
         self.weapon.update()
-        pg.display.flip() 
+        pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
 
@@ -45,6 +47,8 @@ class Game():
         self.weapon.draw()
         # self.map.draw()
         # self.player.draw()
+        pg.draw.rect(game.screen, 'white', (639,355,2,10))
+        pg.draw.rect(game.screen, 'white', (635,359,10,2))
         
     def check_events(self):
         for event in pg.event.get():

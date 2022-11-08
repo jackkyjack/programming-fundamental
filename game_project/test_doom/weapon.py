@@ -2,7 +2,7 @@ from sprite_object import *
 
 
 class Weapon(AnimatedSprite):
-    def __init__(self, game, path='sprites/weapon/1.png', scale=0.75, animation_time=20):
+    def __init__(self, game, path='sprites/weapon/vandal/1.png', scale=0.75, animation_time=20):
         super().__init__(game=game, path=path, scale=scale, animation_time=animation_time)
         self.images = deque(
             [pg.transform.smoothscale(img, (self.image.get_width() * scale, self.image.get_height() * scale))
@@ -27,6 +27,7 @@ class Weapon(AnimatedSprite):
         
     def draw(self):
         self.game.screen.blit(self.images[0], self.weapon_pos)
+
         
     def update(self):
         self.check_animation_time()

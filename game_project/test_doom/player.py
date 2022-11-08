@@ -13,6 +13,7 @@ class Player:
         if event.type == pg.MOUSEBUTTONDOWN:
             if event.button == 1 and not self.shot and not self.game.weapon.shotting:
                 self.shot = True
+                self.game.sound.vandal.play()
                 self.game.weapon.shotting = True
         
     def movement(self):
@@ -56,9 +57,9 @@ class Player:
             self.y += dy
     
     def draw(self):
-        # pg.draw.line(self.game.screen, 'yellow', (self.x * 50, self.y * 50),
-        #            (self.x * 50 + WIDTH * math.cos(self.angle),
-        #              self.y * 50 + WIDTH * math.sin(self.angle)), 2)
+        # pg.draw.line(self.game.screen, 'yellow', (self.x * 40, self.y * 40),
+        #            (self.x * 40 + WIDTH * math.cos(self.angle),
+        #              self.y * 40 + WIDTH * math.sin(self.angle)), 2)
         pg.draw.circle(self.game.screen, 'green', (self.x * 40, self.y * 40), 15)
     
     def mouse_control(self):
