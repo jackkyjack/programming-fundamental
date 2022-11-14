@@ -57,9 +57,9 @@ class Player:
             self.y += dy
     
     def draw(self):
-        # pg.draw.line(self.game.screen, 'yellow', (self.x * 40, self.y * 40),
-        #            (self.x * 40 + WIDTH * math.cos(self.angle),
-        #              self.y * 40 + WIDTH * math.sin(self.angle)), 2)
+        pg.draw.line(self.game.screen, 'yellow', (self.x * 40, self.y * 40),
+                   (self.x * 40 + WIDTH * math.cos(self.angle),
+                     self.y * 40 + WIDTH * math.sin(self.angle)), 2)
         pg.draw.circle(self.game.screen, 'green', (self.x * 40, self.y * 40), 15)
     
     def mouse_control(self):
