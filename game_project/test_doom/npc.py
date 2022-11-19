@@ -1,11 +1,11 @@
 from random import choice, randint, random
-
+from sound import *
 from sprite_object import *
 
 
 class NPC(AnimatedSprite):
-    def __init__(self, game, path='sprites/npc/pon/0.png', pos=(10.5, 1.5),
-                 scale=1, shift= 0.38, animation_time=180):
+    def __init__(self, game, path='sprites/npc/duck/0.png', pos=(10.5, 1.5),
+                 scale = 0.7, shift = 0.27, animation_time = 180):
         super().__init__(game, path, pos, scale, shift, animation_time)
         self.attack_images = self.get_images(self.path + '/attack')
         self.death_images = self.get_images(self.path + '/death')
@@ -16,8 +16,8 @@ class NPC(AnimatedSprite):
         self.attack_dist = randint(3, 6)
         self.speed = 0.05
         self.size = 15
-        self.health = 100
-        self.attack_damage = 10
+        self.health = 5
+        self.attack_damage = 1
         self.accurary = 0.15
         self.alive = True
         self.pain = False
@@ -41,6 +41,7 @@ class NPC(AnimatedSprite):
             self.y += dy
     
     def movement(self):
+        # self.game.sound.duck_walk.play()
         next_pos = self.game.pathfinding.get_path(self.map_pos, self.game.player.map_pos)
         next_x, next_y = next_pos
         
@@ -53,11 +54,13 @@ class NPC(AnimatedSprite):
     
     def attack(self):
         if self.animation_trigger:
-            pass
-            #sound npc shot
+            if random()< self.accurary:
+                self.game.player.get_damage(self.attack_damage)
+            self.game.sound.duck_attack.play()
     
     def animate_death(self):
         if not self.alive:
+            # self.game.sound.duck_death.play()
             if self.game.global_trigger and self.frame_counter < len(self.death_images) - 1:
                 self.death_images.rotate(-1)
                 self.image = self.death_images[0]
@@ -65,6 +68,7 @@ class NPC(AnimatedSprite):
         
     def animate_pain(self):
         self.animate(self.pain_images)
+        self.game.sound.duck_hit.play()
         if self.animation_trigger:
             self.pain = False
         
@@ -72,7 +76,6 @@ class NPC(AnimatedSprite):
     def check_hit_in_npc(self):
         if self.ray_cast_value and self.game.player.shot:
             if HALF_WIDTH - self.sprite_half_width < self.screen_x < HALF_WIDTH + self.sprite_half_width:
-                #sound pain
                 self.game.player.shot = False
                 self.pain = True
                 self.health -= self.game.weapon.damage
@@ -81,7 +84,7 @@ class NPC(AnimatedSprite):
     def check_health(self):
         if self.health < 1:
             self.alive = False
-        #sound death
+        
         
     def run_logic(self):
         if self.alive :

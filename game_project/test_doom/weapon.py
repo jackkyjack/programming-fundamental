@@ -11,7 +11,7 @@ class Weapon(AnimatedSprite):
         self.shotting = False
         self.num_images = len(self.images)
         self.frame_counter = 0
-        self.damage = 50
+        self.damage = 2
         
     def animated_shot(self):
         if self.shotting:
